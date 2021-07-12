@@ -1,6 +1,7 @@
 ---
 name: 'Ethereum - Badger - ibBTC'
-api: 'https://wallet-api.celsius.network/util/interest/rates'
+api: '/api/yield/ibbtc'
 credentials: ''
 category: 'DeFi'
+json_path_rate: '$.apyFromLastWeek'
 ---

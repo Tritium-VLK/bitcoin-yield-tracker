@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getOpportunities } from '../lib/opportunities'
 import useSWR from 'swr'
@@ -29,7 +28,6 @@ export default function Home({ allOpportunities }) {
         <h1 className={styles.title}>
           Bitcoin Yield Tracker
         </h1>
-
           {allOpportunities.map((opp) => (
             <ul className={styles.opportunity}>
               <li key={opp.id}>
@@ -55,10 +53,9 @@ export function Rate(props) {
     // Parse the rate data from response.
     if (!error && typeof data !== 'undefined') {
         if (typeof props.opp.json_path_rate !== 'undefined') {
-            return jp.query(data, props.opp.json_path_rate)
+            return Math.round(jp.query(data, props.opp.json_path_rate) * 10000) / 100 + '%'
         }
     }
 
-    return 'error'
+    return ''
 }
-
