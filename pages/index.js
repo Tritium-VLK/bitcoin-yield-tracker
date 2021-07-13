@@ -39,7 +39,7 @@ export default function Home({ allOpportunities }) {
           <tbody>
           {allOpportunities.map((opp) => (
             <tr key={opp.id}>
-              <td>{opp.name}</td>
+              <td><a href={opp.link}>{opp.name}</a></td>
               <td>{opp.category}</td>
               <td><Rate opp={opp}/></td>
             </tr>
