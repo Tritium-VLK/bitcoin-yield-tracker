@@ -28,21 +28,28 @@ export default function Home({ allOpportunities }) {
         <h1 className={styles.title}>
           Bitcoin Yield Tracker
         </h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Rate</th>
+            </tr>
+          </thead>
+          <tbody>
           {allOpportunities.map((opp) => (
-            <ul className={styles.opportunity}>
-              <li key={opp.id}>
-                {opp.name}
-              </li>
-              <li>
-                {opp.category}
-              </li>
-              <li>
-                <Rate opp={opp}/>
-              </li>
-            </ul>
+            <tr key={opp.id}>
+              <td>{opp.name}</td>
+              <td>{opp.category}</td>
+              <td><Rate opp={opp}/></td>
+            </tr>
           ))}
+          </tbody>
+        </table>
       </main>
-
+      <div className={styles.footer}>
+          <a href="https://github.com/Michael-Neuman/bitcoin-yield-tracker">Provide feedback or contribute</a>
+      </div>
     </div>
   )
 }
